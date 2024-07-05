@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Download Xlinix - ROS Project 2024</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html" class="active"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">2.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">3.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">4.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">5.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="new-vitis-proj.html"><strong aria-hidden="true">6.</strong> Create New Vitis Project</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">7.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">8.</strong> Running everthing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">ROS Project 2024</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="download-software"><a class="header" href="#download-software">Download Software</a></h1>
+<h2 id="basic-information"><a class="header" href="#basic-information">Basic Information</a></h2>
+<p>In our project we will use the software called Vitis unified software platform from Xilinx
+It includes 2 main softwares</p>
+<ol>
+<li>Vitis – IDE for programing ther FPGA and running the code</li>
+<li>Vivado – for creating the hardware for the FPGA</li>
+</ol>
+<p>This is a tool  that combines all aspects of Xilinx® software development into one unified environment. The Vitis software platform supports both the Vitis embedded software development flow, for Xilinx Software Development Kit (SDK) users looking to move into the next generation technology, and the Vitis application acceleration development flow, for software developers looking to use the latest in Xilinx FPGA-based software acceleration.</p>
+<p>The Vitis™ software platform consists of an integrated design environment (IDE) for interactive project development, and command-line tools for scripted or manual application development. The Vitis software platform also includes the Vivado® Design Suite for implementing the kernel on the target device, and for developing custom hardware platforms.</p>
+<h2 id="download-files"><a class="header" href="#download-files">Download files</a></h2>
+<ul>
+<li><a href="https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html">Downloads</a></li>
+</ul>
+<p>Go to Vitis (SW Developer) and download the installer for your operating system</p>
+<p>We worked with version 2022.2: (Linux and windows versions)</p>
+<h2 id="installation-tutorial-windows"><a class="header" href="#installation-tutorial-windows">Installation Tutorial (Windows)</a></h2>
+<ol>
+<li>open .EXE file</li>
+<li>click next<br />
+<img src="images/Dowload_Xilinx/download_software1.png" alt="pic" /></li>
+<li>Login to your account of xilinx (if you don’t have, register one)<br />
+<img src="images/Dowload_Xilinx/download_software2.png" alt="pic" /></li>
+<li>Choose Vitis<br />
+<img src="images/Dowload_Xilinx/download_software3.png" alt="pic" /></li>
+<li>In the next screen, we need to choose the products we want to install. For the full installation you will need 245 GB disk space<br />
+<img src="images/Dowload_Xilinx/download_software4.png" alt="pic" />
+If you don’t have the space requirement, the only products we need to choose for our project are:<br />
+<img src="images/Dowload_Xilinx/download_software5.png" alt="pic" /></li>
+</ol>
+<p>For the SoCs, you can also remove Zynq-7000 and Zynq UltraScale + RFSoC because our board is Zynq UltraScale + MPSoC. The vitis Model composer is also optional so if you still don’t have enough disk space, buy a new one</p>
+<ol start="7">
+<li>Click i agree to all the license agreements and then install regualry\</li>
+</ol>
+<h2 id="installation-tutorial-linux"><a class="header" href="#installation-tutorial-linux">Installation Tutorial (Linux)</a></h2>
+<p>Download the installer from the download page only this time choose the one for linux</p>
+<ol>
+<li>
+<p>Right click on the bin file → properties → Permissions → Check the Execute option<br />
+<img src="images/Dowload_Xilinx/download_software6.png" alt="pic" /></p>
+</li>
+<li>
+<p>Open Terminal inside the folder contains the bin file (Or open terminal then cd to the path contains the bin file)</p>
+</li>
+<li>
+<p>Run the following commands:  (To get the file name easy)</p>
+</li>
+</ol>
+<pre><code class="language-bash">	ls -ltr
+</code></pre>
+<ol start="4">
+<li>
+<p>Then type the command: sudo ./<em>File_Name</em>
+For example:<br />
+<img src="images/Dowload_Xilinx/download_software7.png" alt="pic" /></p>
+</li>
+<li>
+<p>then type your password and then it should open the xilinx installer<br />
+<img src="images/Dowload_Xilinx/download_software8.png" alt="pic" /></p>
+</li>
+<li>
+<p>Then its the same like for the windows.</p>
+</li>
+<li>
+<p>Open terminal and type in the command (check the vitas version):</p>
+</li>
+</ol>
+<pre><code class="language-bash">	source &lt;Vitis_install_path&gt;/Vitis/2022.2/settings64.sh
+</code></pre>
+<p>In my case the path was:</p>
+<pre><code class="language-bash">/tools/Xilinx/Vitis/2022.2/settings64.sh
+</code></pre>
+<p>Then to lunch the vitis ide type in</p>
+<pre><code class="language-bash">vitis
+</code></pre>
+<p>(For the other apps like vivado, vitis_hls do the same just source to the right path)</p>
+<h2 id="installing-cable-drivers-only-for-linux"><a class="header" href="#installing-cable-drivers-only-for-linux">Installing Cable Drivers (Only for linux)</a></h2>
+<p>During the installtion we can’t select the option to install the cable drivers and it needs to be done manually:</p>
+<pre><code class="language-bash">cd &lt;install drivers path&gt;
+</code></pre>
+<p>in  my case it was</p>
+<pre><code class="language-bash">&lt;Vitis Install&gt;/data/xicom/cable_drivers/lin64/install_script/install_drivers/
+</code></pre>
+<p><img src="images/Dowload_Xilinx/download_softwar9.png" alt="pic" /></p>
+<p>then run the command:</p>
+<pre><code class="language-bash">sudo ./install_drivers
+</code></pre>
+<p><img src="images/Dowload_Xilinx/download_software10.png" alt="pic" /></p>
+<h3 id="possible-error"><a class="header" href="#possible-error">Possible Error</a></h3>
+<p>If the installer hang on the "Generating installed device list" step
+Open terminal and type in the command:</p>
+<pre><code class="language-bash">	sudo apt-get install libtinfo5
+</code></pre>
+<p>as documented <a href="https://support.xilinx.com/s/article/76616?language=en_US">here</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="install-ros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="install-ros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
