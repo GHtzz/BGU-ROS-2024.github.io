@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">2.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">3.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">4.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html" class="active"><strong aria-hidden="true">5.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="new-vitis-proj.html"><strong aria-hidden="true">6.</strong> Create New Vitis Project</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">7.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">8.</strong> Running everthing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="bdf.html"><strong aria-hidden="true">2.</strong> BDF</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">3.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="helloworld/index.html"><strong aria-hidden="true">4.</strong> Hello World</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="helloworld/hello-microblaze.html"><strong aria-hidden="true">4.1.</strong> Hello Microblaze</a></li><li class="chapter-item expanded "><a href="helloworld/hello-ros.html"><strong aria-hidden="true">4.2.</strong> Hello ROS</a></li></ol></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">5.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">6.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html" class="active"><strong aria-hidden="true">7.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">8.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">9.</strong> Running everthing</a></li><li class="chapter-item expanded "><a href="img-pipline.html"><strong aria-hidden="true">10.</strong> Image Pipline</a></li><li class="chapter-item expanded "><a href="file.html"><strong aria-hidden="true">11.</strong> Files</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -178,6 +178,8 @@
 <h2 id="hardware-side"><a class="header" href="#hardware-side">Hardware Side</a></h2>
 <h3 id="add-axi_gpio-block"><a class="header" href="#add-axi_gpio-block">Add AXI_GPIO Block</a></h3>
 <ol>
+<li>First step is to ad the IP. right click on the mouse and choose ADD IP. Then you need to choose the wanted IP and add it to the design.
+<img src="images/GPIO/GPIO_0.jpeg" alt="GPIO0" /></li>
 <li>Set all inputs/all outputs for simple use.
 <img src="images/GPIO/GPIO_1.png" alt="GPIO1" /></li>
 <li>Use “Run Connection Automation” (it will add this part that we will remove later).
@@ -214,6 +216,27 @@ set_property PACKAGE_PIN D7 [get_ports {pin_out[0]}]
 </code></pre>
 The command <code>[get_ports {pin_out[0]}]</code> returns the object of the <code>pin_out[0]</code> (the name we chose for the port).</li>
 </ol>
+<h4 id="example"><a class="header" href="#example">Example:</a></h4>
+<p>An example of a project with 2 AXI GPIO devices. one for input ports and one for output ports.
+<img src="images/GPIO/GPIO_14.jpeg" alt="GPIO8" />
+<img src="images/GPIO/GPIO_13.png" alt="GPIO8" /></p>
+<p>The corresponding xdc file</p>
+<pre><code class="language-tcl"># HD_GPIO0 / connector 3
+set_property PACKAGE_PIN D7 [get_ports gpio_io_o_0[0]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_o_0[0]]
+    
+# HD_GPIO1 / connector 5
+set_property PACKAGE_PIN F8 [get_ports gpio_io_o_0[1]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_o_0[1]]
+    
+# HD_GPIO2 / connector 7
+set_property PACKAGE_PIN F7 [get_ports gpio_io_i_0[0]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_i_0[0]]
+    
+# HD_GPIO3/ connector 9
+set_property PACKAGE_PIN G7 [get_ports gpio_io_i_0[1]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_i_0[1]]
+</code></pre>
 <h3 id="connect-interrupts"><a class="header" href="#connect-interrupts">Connect Interrupts</a></h3>
 <ol>
 <li>Open the AXI_GPIO properties and choose “enable interrupts”.<br />
@@ -297,7 +320,7 @@ eyJoaXN0b3J5IjpbLTgzODY1MDA1NCw3MzA5OTgxMTZdfQ==
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="new-vitis-proj.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="code-over-view.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -311,7 +334,7 @@ eyJoaXN0b3J5IjpbLTgzODY1MDA1NCw3MzA5OTgxMTZdfQ==
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="new-vitis-proj.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="code-over-view.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">2.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">3.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">4.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">5.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="new-vitis-proj.html"><strong aria-hidden="true">6.</strong> Create New Vitis Project</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">7.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html" class="active"><strong aria-hidden="true">8.</strong> Running everthing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="bdf.html"><strong aria-hidden="true">2.</strong> BDF</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">3.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="helloworld/index.html"><strong aria-hidden="true">4.</strong> Hello World</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="helloworld/hello-microblaze.html"><strong aria-hidden="true">4.1.</strong> Hello Microblaze</a></li><li class="chapter-item expanded "><a href="helloworld/hello-ros.html"><strong aria-hidden="true">4.2.</strong> Hello ROS</a></li></ol></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">5.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">6.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">7.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">8.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html" class="active"><strong aria-hidden="true">9.</strong> Running everthing</a></li><li class="chapter-item expanded "><a href="img-pipline.html"><strong aria-hidden="true">10.</strong> Image Pipline</a></li><li class="chapter-item expanded "><a href="file.html"><strong aria-hidden="true">11.</strong> Files</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -210,6 +210,10 @@
 </ol>
 <pre><code class="language-bash">sudo chmod 666 /dev/ttyUSB*
 </code></pre>
+<blockquote>
+<p>[!TIP]<br />
+This command needs to be used every time a serial connection is desired between the FPGA and Linux machine</p>
+</blockquote>
 <ol start="5">
 <li>Running the micro-ROS app:</li>
 </ol>
@@ -251,6 +255,9 @@
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="img-pipline.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -262,6 +269,9 @@
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="img-pipline.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

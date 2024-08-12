@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">2.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">3.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">4.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">5.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="new-vitis-proj.html"><strong aria-hidden="true">6.</strong> Create New Vitis Project</a></li><li class="chapter-item expanded "><a href="code-over-view.html" class="active"><strong aria-hidden="true">7.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">8.</strong> Running everthing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="bdf.html"><strong aria-hidden="true">2.</strong> BDF</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">3.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="helloworld/index.html"><strong aria-hidden="true">4.</strong> Hello World</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="helloworld/hello-microblaze.html"><strong aria-hidden="true">4.1.</strong> Hello Microblaze</a></li><li class="chapter-item expanded "><a href="helloworld/hello-ros.html"><strong aria-hidden="true">4.2.</strong> Hello ROS</a></li></ol></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">5.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">6.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">7.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="code-over-view.html" class="active"><strong aria-hidden="true">8.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">9.</strong> Running everthing</a></li><li class="chapter-item expanded "><a href="img-pipline.html"><strong aria-hidden="true">10.</strong> Image Pipline</a></li><li class="chapter-item expanded "><a href="file.html"><strong aria-hidden="true">11.</strong> Files</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -173,13 +173,126 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="code-over-view"><a class="header" href="#code-over-view">Code Over View</a></h1>
+                        <h1 id="using-polling-to-send-rtos-messages"><a class="header" href="#using-polling-to-send-rtos-messages">Using Polling to Send RTOS Messages</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This project demonstrates the use of polling to send messages in a Real-Time Operating System (RTOS) environment using FreeRTOS on an Ultra96 board with MicroBlaze. The project involves toggling an LED using GPIO and publishing messages via micro-ROS.</p>
+<p>The fallowing code uses the latest XSA <a href="files/Vivado/Ultra96_MicroBlaze_ddr_gpio_v2.xsa">file</a>.
+The latest code <a href="files/Vitis/">files</a></p>
+<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
+<h3 id="includes"><a class="header" href="#includes">Includes</a></h3>
+<ol>
+<li><strong>FreeRTOS Includes</strong>:
+<ul>
+<li><code>FreeRTOS.h</code>, <code>task.h</code>, <code>queue.h</code>, <code>timers.h</code></li>
+</ul>
+</li>
+<li><strong>Xilinx Includes</strong>:
+<ul>
+<li><code>xil_printf.h</code>, <code>xparameters.h</code>, <code>xuartps.h</code></li>
+</ul>
+</li>
+<li><strong>GPIO Includes</strong>:
+<ul>
+<li><code>xil_io.h</code>, <code>xgpio.h</code></li>
+</ul>
+</li>
+<li><strong>micro-ROS Includes</strong>:
+<ul>
+<li><code>rcl/rcl.h</code>, <code>rcl/error_handling.h</code>, <code>rclc/rclc.h</code>, <code>rclc/executor.h</code>, <code>rmw_microxrcedds_c/config.h</code>, <code>rmw_microros/rmw_microros.h</code></li>
+<li>ROS message includes: <code>std_msgs/msg/int64.h</code>, <code>std_msgs/msg/int32.h</code>, <code>sensor_msgs/msg/image.h</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="defines"><a class="header" href="#defines">Defines</a></h3>
+<ol>
+<li><strong>Hello World Defines</strong>:
+<ul>
+<li><code>DELAY_1_SECOND</code> (1000UL)</li>
+</ul>
+</li>
+<li><strong>GPIO Defines</strong>:
+<ul>
+<li><code>GPIO_DEVICE_ID_OUT</code> (XPAR_GPIO_0_DEVICE_ID), <code>LED</code> (0x01), <code>LED_CH</code> (1), <code>LED_DEL</code> (10000000)</li>
+<li><code>GPIO_DEVICE_ID_IN</code> (XPAR_GPIO_1_DEVICE_ID), <code>BUTTON_VOLTAGE</code> (0x02), <code>BUTTON</code> (0x03), <code>BUTTON_CH</code> (1)</li>
+</ul>
+</li>
+</ol>
+<h3 id="variables"><a class="header" href="#variables">Variables</a></h3>
+<ul>
+<li>GPIO variables: <code>XGpio Gpio_out</code>, <code>XGpio Gpio_in</code>, <code>u32 button_red_1</code>, <code>u32 button_red_2</code>, <code>static TaskHandle_t toggleLEDTask</code></li>
+</ul>
+<h3 id="tasks"><a class="header" href="#tasks">Tasks</a></h3>
+<ol>
+<li><strong>LED Task</strong>:
+<ul>
+<li>Function: <code>toggleLED</code></li>
+<li>Description: Toggles an LED based on GPIO input.</li>
+</ul>
+</li>
+</ol>
+<h3 id="functions"><a class="header" href="#functions">Functions</a></h3>
+<ol>
+<li>
+<p><strong>Main Function</strong>:</p>
+<ul>
+<li>Initializes GPIO for output and input.</li>
+<li>Creates tasks for toggling LED and micro-ROS message publication.</li>
+<li>Starts the FreeRTOS scheduler.</li>
+</ul>
+</li>
+<li>
+<p><strong>toggleLED</strong>:</p>
+<ul>
+<li>Toggles the LED and reads the button status every second.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_init</strong>:</p>
+<ul>
+<li>Initializes micro-ROS with custom transport and allocator.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_msg_pub</strong>:</p>
+<ul>
+<li>Publishes a standard message (Int32) every second.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_thread_custom</strong>:</p>
+<ul>
+<li>Initializes micro-ROS node and publisher for image messages.</li>
+</ul>
+</li>
+</ol>
+<h2 id="example-image-data"><a class="header" href="#example-image-data">Example Image Data</a></h2>
+<p>Two sample images (<code>coffee</code> and <code>time</code>) are provided as arrays of pixel values.</p>
+<h2 id="constants"><a class="header" href="#constants">Constants</a></h2>
+<p>Several constants are defined for delays and UART configuration:</p>
+<ul>
+<li><code>TIMER_ID</code>, <code>DELAY_10_SECONDS</code>, <code>DELAY_1_SECOND</code>, <code>DELAY_60_SECOND</code>, <code>DELAY_30_SECOND</code>, <code>DELAY_10_MS</code>, <code>TIMER_CHECK_THRESHOLD</code></li>
+<li><code>UART_DEVICE_ID</code>, <code>THREAD_MIRCOROS_STACKSIZE</code></li>
+<li><code>MICROROS_TRANSPORTS_FRAMING_MODE</code>, <code>MICROROS_TRANSPORTS_PACKET_MODE</code></li>
+</ul>
+<h2 id="micro-ros-custom-transport"><a class="header" href="#micro-ros-custom-transport">Micro-ROS Custom Transport</a></h2>
+<p>Custom transport functions are provided for micro-ROS communication:</p>
+<ul>
+<li><code>vitis_transport_open</code>, <code>vitis_transport_close</code>, <code>vitis_transport_write</code>, <code>vitis_transport_read</code></li>
+<li>Memory management functions: <code>microros_allocate</code>, <code>microros_deallocate</code>, <code>microros_reallocate</code>, <code>microros_zero_allocate</code></li>
+</ul>
+<h2 id="node-and-topic-definitions"><a class="header" href="#node-and-topic-definitions">Node and Topic Definitions</a></h2>
+<ul>
+<li>Node name: <code>vitis_publisher</code></li>
+<li>Topic names: <code>ros_pub_img_topic_name</code> ("image_raw"), <code>ros_pub_msg_topic_name</code> ("img_detection")</li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>Compile and load the code onto the Ultra96 board. Ensure that FreeRTOS and micro-ROS libraries are properly linked. The program will toggle an LED based on GPIO input and publish messages via micro-ROS.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="new-vitis-proj.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="gpio-n-interrupts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -193,7 +306,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="new-vitis-proj.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="gpio-n-interrupts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 

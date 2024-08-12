@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">2.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">3.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">4.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">5.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="new-vitis-proj.html"><strong aria-hidden="true">6.</strong> Create New Vitis Project</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">7.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">8.</strong> Running everthing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="download-xilinx.html"><strong aria-hidden="true">1.</strong> Download Xlinix</a></li><li class="chapter-item expanded "><a href="bdf.html"><strong aria-hidden="true">2.</strong> BDF</a></li><li class="chapter-item expanded "><a href="install-ros.html"><strong aria-hidden="true">3.</strong> Install ROS</a></li><li class="chapter-item expanded "><a href="helloworld/index.html"><strong aria-hidden="true">4.</strong> Hello World</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="helloworld/hello-microblaze.html"><strong aria-hidden="true">4.1.</strong> Hello Microblaze</a></li><li class="chapter-item expanded "><a href="helloworld/hello-ros.html"><strong aria-hidden="true">4.2.</strong> Hello ROS</a></li></ol></li><li class="chapter-item expanded "><a href="add-uart.html"><strong aria-hidden="true">5.</strong> Add UART</a></li><li class="chapter-item expanded "><a href="ros-proj-in-vitis.html"><strong aria-hidden="true">6.</strong> ROS project in vitis</a></li><li class="chapter-item expanded "><a href="gpio-n-interrupts.html"><strong aria-hidden="true">7.</strong> GPIO & Interrupts</a></li><li class="chapter-item expanded "><a href="code-over-view.html"><strong aria-hidden="true">8.</strong> Code Over View</a></li><li class="chapter-item expanded "><a href="running.html"><strong aria-hidden="true">9.</strong> Running everthing</a></li><li class="chapter-item expanded "><a href="img-pipline.html"><strong aria-hidden="true">10.</strong> Image Pipline</a></li><li class="chapter-item expanded "><a href="file.html"><strong aria-hidden="true">11.</strong> Files</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -175,22 +175,50 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>Hi Carmel</p>
+<h2 id="background"><a class="header" href="#background">Background:</a></h2>
+<p>The proliferation of robotics in the domain of edge devices necessitates efficient communication among these devices. To address this need, µROS was developed as a user-friendly tool for managing communications in robotics.</p>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose:</a></h2>
+<p>Efficiency in computing substrates is critical to the success of robotic applications. While various platforms exist, FPGA has emerged as a promising substrate for robotic applications. However, µROS is not compatible well with FPGA and our work presents an implementation of µROS in MicroBlaze, an FPGA typed microprocessor.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods:</a></h2>
+<p>First, we would develop the basic generic µROS infrastructure to MicroBlaze FPGA in an intelligent and efficient manner. We then improved the current MicroBlaze support for µROS by using more advanced data transfer methods like Interrupts.</p>
+<h2 id="results"><a class="header" href="#results">Results:</a></h2>
+<p>Development of an infrastructure that combines the capabilities of MicroBlaze with the functionality of µROS and has proven by communication demos.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion">Conclusion:</a></h2>
+<p>Our developed infrastructure demonstrates the feasibility of having µROS on an FPGA processor and paving the way for further improvement in the future.</p>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<ul>
+<li>Ubuntu 22.04.4 LTS</li>
+<li>Xilinx Ultra96 Zynq UltraSCALE+  (NOT V2 !!)</li>
+<li>Avnet JTAG</li>
+<li>microUSB to USB-A</li>
+<li>Power Brick</li>
+</ul>
 <h2 id="todo"><a class="header" href="#todo">TODO:</a></h2>
 <ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Hello World -&gt; Hello ROS</li>
 <li><input disabled="" type="checkbox"/>
-Add files to md book vivido project and XSA file (check we can send vivato project proparly)</li>
+Add files to md book vivido project and XSA file (check we can send vivato project proparly)
+<ul>
+<li><input disabled="" type="checkbox"/>
+Final Project (latest code change vitis)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+XSA (w and w/out GPIO)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+uROS ws (the whole file)</li>
+<li><input disabled="" type="checkbox" checked=""/>
+BDF master</li>
+</ul>
+</li>
 <li><input disabled="" type="checkbox" checked=""/>
 Review files</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Add chapters from Michael? (How to download vitas and so on….)</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Update introduction (using linux versions and so on)</li>
 <li><input disabled="" type="checkbox"/>
-In the create vitas project , maybe change the code, because it includes GPIO</li>
-<li><input disabled="" type="checkbox"/>
 Chapter with finished code (ROS controller by GPIO)</li>
-<li><input disabled="" type="checkbox"/>
+<li><input disabled="" type="checkbox" checked=""/>
 Link to XSA file inside create Vitis project</li>
 <li><input disabled="" type="checkbox"/>
 Publish book</li>
@@ -220,6 +248,7 @@ It includes 2 main softwares</p>
 </ol>
 <p>This is a tool  that combines all aspects of Xilinx® software development into one unified environment. The Vitis software platform supports both the Vitis embedded software development flow, for Xilinx Software Development Kit (SDK) users looking to move into the next generation technology, and the Vitis application acceleration development flow, for software developers looking to use the latest in Xilinx FPGA-based software acceleration.</p>
 <p>The Vitis™ software platform consists of an integrated design environment (IDE) for interactive project development, and command-line tools for scripted or manual application development. The Vitis software platform also includes the Vivado® Design Suite for implementing the kernel on the target device, and for developing custom hardware platforms.</p>
+<p><a href="files/Hello_World/Hello_Microblaze/design_Ultra96_MicroBlaze_wrapper.zip">xsa file</a></p>
 <h2 id="download-files"><a class="header" href="#download-files">Download files</a></h2>
 <ul>
 <li><a href="https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html">Downloads</a></li>
@@ -304,6 +333,21 @@ Open terminal and type in the command:</p>
 <pre><code class="language-bash">	sudo apt-get install libtinfo5
 </code></pre>
 <p>as documented <a href="https://support.xilinx.com/s/article/76616?language=en_US">here</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bdf-files"><a class="header" href="#bdf-files">BDF Files</a></h1>
+<p>Your next step will be to add the needed Avnet Board Definition Files to your Vivado file path.</p>
+<h2 id="download"><a class="header" href="#download">Download</a></h2>
+<p>The source is <a href="https://github.com/Avnet/bdf">https://github.com/Avnet/bdf</a>
+click on code and and then click download zip</p>
+<p><img src="images/BDF/BDF_1.jpeg" alt="pic" /></p>
+<p>for Ultra96 (v1) board you can download directly from here <br />
+<a href="files/Vivado/ultra96v1.zip">V1 Board</a><br />
+<a href="files/Vivado/ultra96v2.zip">V2 Board</a></p>
+<h2 id="on-your-computer"><a class="header" href="#on-your-computer">On Your Computer</a></h2>
+<p>After you extract the ZIP folder, you will need to copy the desired BDF  folders dicitly to the following directory</p>
+<pre><code class="language-bash">&lt;your_path&gt;\Xilinx\Vivado\&lt;version&gt;\data\boards\board_files
+</code></pre>
+<p>where version is 2022.2 for example
+Pay attention, as some of the borads sit under the deprecated folder</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="install-ros-and-create-micro-ros-firmware-inside-ubuntu-2204"><a class="header" href="#install-ros-and-create-micro-ros-firmware-inside-ubuntu-2204">Install ROS and Create micro-ROS Firmware inside Ubuntu 22.04</a></h1>
 <h2 id="install-ros-2"><a class="header" href="#install-ros-2">Install ROS 2</a></h2>
 <p>Use the following link to download and set up ROS 2:<br />
@@ -387,6 +431,11 @@ set(CMAKE_CXX_COMPILER /tools/Xilinx/Vitis/2022.2/gnu/microblaze/lin/bin/mb-g++)
 <h3 id="create-firmware--create-the-build-directory-and-a-file"><a class="header" href="#create-firmware--create-the-build-directory-and-a-file">Create Firmware – Create the Build Directory and .a File</a></h3>
 <pre><code class="language-bash">ros2 run micro_ros_setup build_firmware.sh $(pwd)/my_custom_toolchain.cmake $(pwd)/my_custom_colcon.meta
 </code></pre>
+<h3 id="files"><a class="header" href="#files">Files</a></h3>
+<p>We add are workstation files for your convinace.
+The filnes include all you need to start working build and everything including an image pipline.<br />
+<a href="files/ROS/ros2_ws.zip">ros2_ws</a><br />
+<a href="files/uROS/microros_ws.zip">microros_ws</a></p>
 <h3 id="current-problems"><a class="header" href="#current-problems">Current Problems</a></h3>
 <p><strong>Directory Structure</strong>:<br />
 In one of the updates of ROS, the directory structure of the files changed.<br />
@@ -399,11 +448,77 @@ From:</p>
 <p>The problem is that the <code>#include</code> lines inside the files are not compatible with the new version.<br />
 The current solution is to build the project and then to add links to each subdirectory needed so the compiler will see these directories as written in the includes (for example – add link to the first <code>rcl</code> directory).<br />
 Wanted solution – probably a CMake file problem.
-Current Solution: during the build of the code inside vitis, we will create links for the sub files (explained the the vitis chapter)</p>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQzMjk2OTYsLTEzMzgxODI4NTgsNzMwOT
-k4MTE2XX0=
--->
+Current Solution: during the build of the code inside vitis, we will create links for the sub files (explained in <a href="ros-proj-in-vitis.html">ROS project in Vitis</a>)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h1>
+<p>This examples will make sure you have every thing setup proparly to start working.
+Make sure to run Xilinx Hello word in a new project, then you can change it to Hello ROS.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-microblaze"><a class="header" href="#hello-microblaze">Hello Microblaze</a></h1>
+<p>In this tutorial we will explain step-by-step how to create basic freeRTOS application running on the MicroBlaze that transmit few messages.</p>
+<p>Below is the xsa design of ultra96 with microblaze to work with freeRTOS:</p>
+<h3 id="download-the-xsa-file"><a class="header" href="#download-the-xsa-file">Download The XSA File</a></h3>
+<p>You will need the design in XSA format to open the project.
+Download the file and put it in the desired folder</p>
+<p>file 1 (ddr, without gpio)</p>
+<h3 id="open-new-project"><a class="header" href="#open-new-project">Open New Project</a></h3>
+<ol>
+<li>
+<p>go to File - New - Application Projetc
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic1.jpg" alt="HB1" /></p>
+</li>
+<li>
+<p>click next
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic2.png" alt="HB2" /></p>
+</li>
+<li>
+<p>Go to the tab “Create a new platform from hardware (XSA)
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic3.png" alt="HB3" /></p>
+</li>
+<li>
+<p>Click browse and go to the the XSA file and choose it
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic4.png" alt="HB4" /></p>
+</li>
+<li>
+<p>then click next. create a new system project and choose from the target processor the microblaze_0
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic5.png" alt="HB5" /></p>
+</li>
+<li>
+<p>Under operating system, choose freertos10_xilinx
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic6.png" alt="HB6" /></p>
+</li>
+<li>
+<p>Choose a code template (You can choose FreeRTOS Hello World to test everythink works as neeeded)
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic7.png" alt="HB7" /></p>
+</li>
+<li>
+<p>Click finish</p>
+</li>
+<li>
+<p>Now we need to enable Vitis to access the right port. open the terminal and give permissions to access the port</p>
+</li>
+</ol>
+<pre><code class="language-bash">sudo chmod 666 /dev/ttyUSB*
+</code></pre>
+<ol start="10">
+<li>Before running, choose the right port in Vitis</li>
+</ol>
+<ul>
+<li>Under Vitis Serial Terminal  (One tab to the left of defualt tab 'Console')</li>
+<li>Press the green plus to add a serial connection.</li>
+<li>Fill in the settings.
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic9.jfif" alt="HB9" /></li>
+</ul>
+<p>now you can run the program
+11.  Go to the terminal of the MicroBlaze and the result should be -
+<img src="helloworld/../images/Hello_World/Hello_Microblaze/pic8.png" alt="HB8" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-ros"><a class="header" href="#hello-ros">Hello ROS</a></h1>
+<p>In this tutorial we will explain step-by-step how to create a basic ROS application running on the MicroBlaze that transmit a few messages.</p>
+<h3 id="downloading-xsa-and-starting-a-new-project"><a class="header" href="#downloading-xsa-and-starting-a-new-project">Downloading XSA and Starting a new project</a></h3>
+<ol>
+<li>Download the fallowing file, it includes all the needed hardware to run ROS on the Microblaze:
+<a href="helloworld/../files/Hello_World/Hello_ROS/design_Ultra96_MicroBlaze_wrapper.xsa">ROS_design.xsa</a></li>
+<li>Start a new 'Hello Microblaze' project like descibed in <a href="helloworld/hello-microblaze.html">Hello Microblaze</a></li>
+<li>Change the 'freertos_hello_world.c' to the fallowing <a href="helloworld/../files/Hello_ROS/freertos_hello_world.c">file</a>.</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="add-uart"><a class="header" href="#add-uart">Add UART</a></h1>
 <h2 id="first-step--add-output-of-irq-from-zynq-to-microblaze"><a class="header" href="#first-step--add-output-of-irq-from-zynq-to-microblaze">First Step – Add output of IRQ from ZYNQ to MicroBlaze</a></h2>
 <p>We want to connect PS_PL_irq_uart1 line from ZYNQ to MB xlconcat ip</p>
@@ -441,7 +556,7 @@ MwOTk4MTE2XX0=
 <li>Copy necessary .c files (e.g., allocator) to the <code>src</code> directory.</li>
 <li>These files contain functions for micro-ROS, and the main files to run the program.</li>
 </ul>
-<h3 id="files"><a class="header" href="#files">Files:</a></h3>
+<h3 id="files-1"><a class="header" href="#files-1">Files:</a></h3>
 <p>All files needed to run uROS.<br />
 <a href="files/Vitis/main.c">main.c</a><br />
 <a href="files/Vitis/custom_memory_manager.c">custom_memory_manager.c</a><br />
@@ -461,14 +576,14 @@ MwOTk4MTE2XX0=
 <ul>
 <li>Go to the properties of the project (same as before).</li>
 <li>Navigate to: <code>C/C++ Build -&gt; Settings -&gt; MicroBlaze gcc linker -&gt; Libraries</code>.</li>
-<li>There are two boxes there:
-<ul>
-<li>Under "Library search path," click "Add" (top right corner of the lower box).<br />
+<li>There are two boxes there:<br />
 <img src="images/ROS_PRJ/PRJ_3.jpg" alt="PRJ3" /></li>
-<li>Insert the path to the <code>.a</code> file (the folder of the <code>.a</code> file): <code>/&lt;path&gt;/microros_ws/firmware/build/</code>.</li>
-<li>Under "Libraries (-l)," click "Add" (top right corner of the upper box) and add the flag <code>microros</code>.</li>
 </ul>
-</li>
+<!---  - Under "Library search path," click "Add" (top right corner of the lower box).\ --->
+<ul>
+<li>Under "Libary search path (-L)" insert the path to the <code>.a</code> file (the folder of the <code>.a</code> file): <code>/&lt;path&gt;/microros_ws/firmware/build/</code>.</li>
+<li>Under "Libraries (-l)," click "Add" (top right corner of the upper box) and add the flag <code>microros</code>.
+<img src="images/ROS_PRJ/PRJ_9.png" alt="PRJ9" /></li>
 </ul>
 <h2 id="step-4-configure-uart-for-microblaze"><a class="header" href="#step-4-configure-uart-for-microblaze">Step 4: Configure UART for microblaze</a></h2>
 <ul>
@@ -492,7 +607,10 @@ MwOTk4MTE2XX0=
 <img src="images/ROS_PRJ/PRJ_7.jpg" alt="PRJ7" /></li>
 <li>Insert the link to the first directory in the tree for each missing file. For example: <code>/&lt;path&gt;/microros_ws/firmware/build/include/rcl</code>.
 <ul>
-<li>The file itself is at: <code>/&lt;path&gt;/microros_ws/firmware/build/include/rcl/rcl/rcl.h</code>.</li>
+<li>
+<p>The file itself is at: <code>/&lt;path&gt;/microros_ws/firmware/build/include/rcl/rcl/rcl.h</code>.</p>
+<p><img src="images/ROS_PRJ/PRJ_8.png" alt="PRJ8" /></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -501,6 +619,8 @@ MwOTk4MTE2XX0=
 <h2 id="hardware-side"><a class="header" href="#hardware-side">Hardware Side</a></h2>
 <h3 id="add-axi_gpio-block"><a class="header" href="#add-axi_gpio-block">Add AXI_GPIO Block</a></h3>
 <ol>
+<li>First step is to ad the IP. right click on the mouse and choose ADD IP. Then you need to choose the wanted IP and add it to the design.
+<img src="images/GPIO/GPIO_0.jpeg" alt="GPIO0" /></li>
 <li>Set all inputs/all outputs for simple use.
 <img src="images/GPIO/GPIO_1.png" alt="GPIO1" /></li>
 <li>Use “Run Connection Automation” (it will add this part that we will remove later).
@@ -537,6 +657,27 @@ set_property PACKAGE_PIN D7 [get_ports {pin_out[0]}]
 </code></pre>
 The command <code>[get_ports {pin_out[0]}]</code> returns the object of the <code>pin_out[0]</code> (the name we chose for the port).</li>
 </ol>
+<h4 id="example"><a class="header" href="#example">Example:</a></h4>
+<p>An example of a project with 2 AXI GPIO devices. one for input ports and one for output ports.
+<img src="images/GPIO/GPIO_14.jpeg" alt="GPIO8" />
+<img src="images/GPIO/GPIO_13.png" alt="GPIO8" /></p>
+<p>The corresponding xdc file</p>
+<pre><code class="language-tcl"># HD_GPIO0 / connector 3
+set_property PACKAGE_PIN D7 [get_ports gpio_io_o_0[0]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_o_0[0]]
+    
+# HD_GPIO1 / connector 5
+set_property PACKAGE_PIN F8 [get_ports gpio_io_o_0[1]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_o_0[1]]
+    
+# HD_GPIO2 / connector 7
+set_property PACKAGE_PIN F7 [get_ports gpio_io_i_0[0]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_i_0[0]]
+    
+# HD_GPIO3/ connector 9
+set_property PACKAGE_PIN G7 [get_ports gpio_io_i_0[1]]
+    set_property IOSTANDARD LVCMOS18 [get_ports gpio_io_i_0[1]]
+</code></pre>
 <h3 id="connect-interrupts"><a class="header" href="#connect-interrupts">Connect Interrupts</a></h3>
 <ol>
 <li>Open the AXI_GPIO properties and choose “enable interrupts”.<br />
@@ -611,32 +752,120 @@ vPortEnableInterrupt(INTC_DEVICE_INT_ID);
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTgzODY1MDA1NCw3MzA5OTgxMTZdfQ==
 -->
-<div style="break-before: page; page-break-before: always;"></div><h1 id="create-new-vitis-project"><a class="header" href="#create-new-vitis-project">Create New Vitis Project</a></h1>
-<h2 id="open-vitis-project-with-freertos"><a class="header" href="#open-vitis-project-with-freertos">Open Vitis Project with FreeRtos</a></h2>
-<p>In this tutorial, we will explain step-by-step how to create a basic FreeRTOS application.</p>
-<h3 id="steps"><a class="header" href="#steps">Steps:</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="using-polling-to-send-rtos-messages"><a class="header" href="#using-polling-to-send-rtos-messages">Using Polling to Send RTOS Messages</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>This project demonstrates the use of polling to send messages in a Real-Time Operating System (RTOS) environment using FreeRTOS on an Ultra96 board with MicroBlaze. The project involves toggling an LED using GPIO and publishing messages via micro-ROS.</p>
+<p>The fallowing code uses the latest XSA <a href="files/Vivado/Ultra96_MicroBlaze_ddr_gpio_v2.xsa">file</a>.
+The latest code <a href="files/Vitis/">files</a></p>
+<h2 id="project-structure"><a class="header" href="#project-structure">Project Structure</a></h2>
+<h3 id="includes"><a class="header" href="#includes">Includes</a></h3>
 <ol>
-<li>Open Vitis and create a new application project.<br />
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_1.png" alt="N_VITIS_PROG1" /></li>
-<li>Click next and choose the tab “Create a new platform from hardware (XSA).<br />
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_2.png" alt="N_VITIS_PROG2" /></li>
-<li>Click browse and choose the XSA file (this file contains the Hardware to burn into the FPGA) then click next.
+<li><strong>FreeRTOS Includes</strong>:
 <ul>
-<li>Link to <a href="files/NEW_VITIS_PROJ/***.xsa">XSA FIle</a>
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_3.png" alt="N_VITIS_PROG3" /></li>
+<li><code>FreeRTOS.h</code>, <code>task.h</code>, <code>queue.h</code>, <code>timers.h</code></li>
 </ul>
 </li>
-<li>Now choose create a new system project, and choose from the target processor the <code>microblaze_0</code>.<br />
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_4.png" alt="N_VITIS_PROG4" /></li>
-<li>Create a new domain using <code>freertos10_xilinx</code> operating system.<br />
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_5.png" alt="N_VITIS_PROG5" /></li>
-<li>Choose a code template (You can choose FreeRTOS Hello World to test everything works as needed).<br />
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_6.png" alt="N_VITIS_PROG6" /></li>
-<li>Click finish.</li>
-<li>Go to the terminal of the MicroBlaze and the result should be:
-<img src="images/NEW_VITIS_PROJ/NEW_VITIS_8.png" alt="N_VITIS_PROG8" /></li>
+<li><strong>Xilinx Includes</strong>:
+<ul>
+<li><code>xil_printf.h</code>, <code>xparameters.h</code>, <code>xuartps.h</code></li>
+</ul>
+</li>
+<li><strong>GPIO Includes</strong>:
+<ul>
+<li><code>xil_io.h</code>, <code>xgpio.h</code></li>
+</ul>
+</li>
+<li><strong>micro-ROS Includes</strong>:
+<ul>
+<li><code>rcl/rcl.h</code>, <code>rcl/error_handling.h</code>, <code>rclc/rclc.h</code>, <code>rclc/executor.h</code>, <code>rmw_microxrcedds_c/config.h</code>, <code>rmw_microros/rmw_microros.h</code></li>
+<li>ROS message includes: <code>std_msgs/msg/int64.h</code>, <code>std_msgs/msg/int32.h</code>, <code>sensor_msgs/msg/image.h</code></li>
+</ul>
+</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="code-over-view"><a class="header" href="#code-over-view">Code Over View</a></h1>
+<h3 id="defines"><a class="header" href="#defines">Defines</a></h3>
+<ol>
+<li><strong>Hello World Defines</strong>:
+<ul>
+<li><code>DELAY_1_SECOND</code> (1000UL)</li>
+</ul>
+</li>
+<li><strong>GPIO Defines</strong>:
+<ul>
+<li><code>GPIO_DEVICE_ID_OUT</code> (XPAR_GPIO_0_DEVICE_ID), <code>LED</code> (0x01), <code>LED_CH</code> (1), <code>LED_DEL</code> (10000000)</li>
+<li><code>GPIO_DEVICE_ID_IN</code> (XPAR_GPIO_1_DEVICE_ID), <code>BUTTON_VOLTAGE</code> (0x02), <code>BUTTON</code> (0x03), <code>BUTTON_CH</code> (1)</li>
+</ul>
+</li>
+</ol>
+<h3 id="variables"><a class="header" href="#variables">Variables</a></h3>
+<ul>
+<li>GPIO variables: <code>XGpio Gpio_out</code>, <code>XGpio Gpio_in</code>, <code>u32 button_red_1</code>, <code>u32 button_red_2</code>, <code>static TaskHandle_t toggleLEDTask</code></li>
+</ul>
+<h3 id="tasks"><a class="header" href="#tasks">Tasks</a></h3>
+<ol>
+<li><strong>LED Task</strong>:
+<ul>
+<li>Function: <code>toggleLED</code></li>
+<li>Description: Toggles an LED based on GPIO input.</li>
+</ul>
+</li>
+</ol>
+<h3 id="functions"><a class="header" href="#functions">Functions</a></h3>
+<ol>
+<li>
+<p><strong>Main Function</strong>:</p>
+<ul>
+<li>Initializes GPIO for output and input.</li>
+<li>Creates tasks for toggling LED and micro-ROS message publication.</li>
+<li>Starts the FreeRTOS scheduler.</li>
+</ul>
+</li>
+<li>
+<p><strong>toggleLED</strong>:</p>
+<ul>
+<li>Toggles the LED and reads the button status every second.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_init</strong>:</p>
+<ul>
+<li>Initializes micro-ROS with custom transport and allocator.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_msg_pub</strong>:</p>
+<ul>
+<li>Publishes a standard message (Int32) every second.</li>
+</ul>
+</li>
+<li>
+<p><strong>microros_thread_custom</strong>:</p>
+<ul>
+<li>Initializes micro-ROS node and publisher for image messages.</li>
+</ul>
+</li>
+</ol>
+<h2 id="example-image-data"><a class="header" href="#example-image-data">Example Image Data</a></h2>
+<p>Two sample images (<code>coffee</code> and <code>time</code>) are provided as arrays of pixel values.</p>
+<h2 id="constants"><a class="header" href="#constants">Constants</a></h2>
+<p>Several constants are defined for delays and UART configuration:</p>
+<ul>
+<li><code>TIMER_ID</code>, <code>DELAY_10_SECONDS</code>, <code>DELAY_1_SECOND</code>, <code>DELAY_60_SECOND</code>, <code>DELAY_30_SECOND</code>, <code>DELAY_10_MS</code>, <code>TIMER_CHECK_THRESHOLD</code></li>
+<li><code>UART_DEVICE_ID</code>, <code>THREAD_MIRCOROS_STACKSIZE</code></li>
+<li><code>MICROROS_TRANSPORTS_FRAMING_MODE</code>, <code>MICROROS_TRANSPORTS_PACKET_MODE</code></li>
+</ul>
+<h2 id="micro-ros-custom-transport"><a class="header" href="#micro-ros-custom-transport">Micro-ROS Custom Transport</a></h2>
+<p>Custom transport functions are provided for micro-ROS communication:</p>
+<ul>
+<li><code>vitis_transport_open</code>, <code>vitis_transport_close</code>, <code>vitis_transport_write</code>, <code>vitis_transport_read</code></li>
+<li>Memory management functions: <code>microros_allocate</code>, <code>microros_deallocate</code>, <code>microros_reallocate</code>, <code>microros_zero_allocate</code></li>
+</ul>
+<h2 id="node-and-topic-definitions"><a class="header" href="#node-and-topic-definitions">Node and Topic Definitions</a></h2>
+<ul>
+<li>Node name: <code>vitis_publisher</code></li>
+<li>Topic names: <code>ros_pub_img_topic_name</code> ("image_raw"), <code>ros_pub_msg_topic_name</code> ("img_detection")</li>
+</ul>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>Compile and load the code onto the Ultra96 board. Ensure that FreeRTOS and micro-ROS libraries are properly linked. The program will toggle an LED based on GPIO input and publish messages via micro-ROS.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="running-everthing"><a class="header" href="#running-everthing">Running everthing</a></h1>
 <p>Steps to fallow in ORDER!:</p>
 <ul>
@@ -674,6 +903,10 @@ eyJoaXN0b3J5IjpbLTgzODY1MDA1NCw3MzA5OTgxMTZdfQ==
 </ol>
 <pre><code class="language-bash">sudo chmod 666 /dev/ttyUSB*
 </code></pre>
+<blockquote>
+<p>[!TIP]<br />
+This command needs to be used every time a serial connection is desired between the FPGA and Linux machine</p>
+</blockquote>
 <ol start="5">
 <li>Running the micro-ROS app:</li>
 </ol>
@@ -706,6 +939,73 @@ eyJoaXN0b3J5IjpbLTgzODY1MDA1NCw3MzA5OTgxMTZdfQ==
 <p>Print data foing through a topic:</p>
 <pre><code class="language-bash">ros2 topic echo /topic
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="image-pipline"><a class="header" href="#image-pipline">Image Pipline</a></h1>
+<p>Tutorial from <a href="https://jeffzzq.medium.com/ros2-image-pipeline-tutorial-3b18903e7329">ROS2 Image Pipeline Tutorial</a></p>
+<p>if new WS is needed:</p>
+<pre><code class="language-bash">mkdir test_ws
+cd test_ws
+mkdir src
+</code></pre>
+<p>else</p>
+<pre><code class="language-bash">cd ~/ros2_ws
+</code></pre>
+<p>then:</p>
+<pre><code class="language-bash">cd src
+git clone https://github.com/ros-perception/image_pipeline.git
+git clone https://github.com/ros-perception/image_common.git
+git clone https://github.com/clydemcqueen/opencv_cam.git
+git clone https://github.com/ptrmu/ros2_shared.git
+
+cd ..
+colcon build
+ros2 pkg executables
+</code></pre>
+<p>fined connected camera devices:</p>
+<pre><code class="language-bash">ls /dev/video*
+/dev/video0  /dev/video1
+</code></pre>
+<p>"/dev/video0"  worked for me (camera_num = 0)</p>
+<pre><code class="language-bash">. install/local_setup.bash
+ros2 run opencv_cam opencv_cam_main --ros-args --param index:=&lt;camera_num&gt;
+</code></pre>
+<p>in new terminal:</p>
+<pre><code class="language-bash">$ . install/local_setup.bash$ ros2 topic list
+/image_raw
+/parameter_events
+/rosout$ 
+
+$ ros2 topic echo --no-arr /image_raw
+	header:
+	  stamp:
+	    sec: 1610063135
+	    nanosec: 248209953
+	  frame_id: camera_frame
+	height: 720
+	width: 1280
+	encoding: bgr8
+	is_bigendian: 0
+	step: 3840
+	data: '&lt;sequence type: uint8, length: 2764800&gt;'
+	---
+
+$ ros2 run image_view image_view --ros-args --remap /image:=/image_raw
+	
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="files-2"><a class="header" href="#files-2">Files</a></h1>
+<h2 id="xsa-files-for-vivado"><a class="header" href="#xsa-files-for-vivado">XSA files for Vivado</a></h2>
+<ul>
+<li><a href="files/Vivado/Ultra96_MicroBlaze_ddr.xsa">with GPIO DDR</a></li>
+<li><a href="files/Vivado/Ultra96_MicroBlaze_ddr_gpio_v2.xsa">w/out GPIO</a></li>
+</ul>
+<h2 id="code-for-vitis"><a class="header" href="#code-for-vitis">Code for Vitis</a></h2>
+<ul>
+<li><a href="files/Vitis/final_code.zip">final code</a></li>
+</ul>
+<h2 id="workstations"><a class="header" href="#workstations">Workstations</a></h2>
+<ul>
+<li><a href="files/uROS/microros.zip">micro ROS WS</a></li>
+<li><a href="files/uROS/ros_ws.zip">ROS2 WS</a></li>
+</ul>
 
                     </main>
 
